@@ -1,0 +1,7 @@
+[0513/154753.130:ERROR:web_contents_delegate.cc(246)] WebContentsDelegate::CheckMediaAccessPermission: Not supported.
+[0513/154753.130:ERROR:web_contents_delegate.cc(246)] WebContentsDelegate::CheckMediaAccessPermission: Not supported.
+[0513/154753.622:INFO:CONSOLE(0)] "[.WebGL-0000613000D4CD00]GL Driver Message (OpenGL, Performance, GL_CLOSE_PATH_NV, High): GPU stall due to ReadPixels", source: https://www.linkedin.com/home (0)
+[0513/154753.656:INFO:CONSOLE(278)] "An iframe which has both allow-scripts and allow-same-origin for its sandbox attribute can escape its sandboxing.", source: https://static.licdn.com/aero-v1/sc/h/etkd25e7kzp2lrg1w9y0kixlu (278)
+[0513/154754.731:INFO:CONSOLE(8)] "visitor.publishDestinations() result: The destination publishing iframe is already attached and loaded.", source: https://platform.linkedin.com/litms/utag/homepage-guest-frontend/utag.js?cb=1683972900000 (8)
+[0513/154754.947:WARNING:spdy_session.cc(3491)] Received HEADERS for invalid stream 1
+[0513/154755.592:INFO:CONSOLE(89)] "Canvas2D: Multiple readback operations using getImageData are faster with the willReadFrequently attribute set to true. See: https://html.spec.whatwg.org/multipage/canvas.html#concept-canvas-will-read-frequently", source: https://static.licdn.com/sc/h/53pvxhwnu4814i1e9beje3cqa (89)

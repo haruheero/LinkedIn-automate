@@ -1,29 +1,31 @@
-import puppeteer from "puppeteer";
-import {WEBSITE, WEBSITE_SIGNIN_EMAIL_SELECTOR, WEBSITE_SIGNIN_PASSWORD_SELECTOR, WEBSITE_SIGNIN_SUBMIT_SELECTOR, USER_EMAIL, USER_PASSWORD} from '../constants.js'
+import {WEBSITE_SIGNIN_EMAIL_SELECTOR, WEBSITE_SIGNIN_PASSWORD_SELECTOR, WEBSITE_SIGNIN_SUBMIT_SELECTOR, USER_EMAIL, USER_PASSWORD} from '../constants.js'
+// import { navigatePages } from './naviagtion.js';
 
-const signIn = async(page) => {
-    await page.click(WEBSITE_SIGNIN_EMAIL_SELECTOR);
-    await page.keyboard.type(USER_EMAIL);
-    await page.click(WEBSITE_SIGNIN_PASSWORD_SELECTOR);
-    await page.keyboard.type(USER_PASSWORD);
-    await page.click(WEBSITE_SIGNIN_SUBMIT_SELECTOR);
-    await page.waitForNavigation();
-    await page.screenshot({path: 'linkedin.png'})
-} 
+export const signIn = async(page) => {
+
+    //signin using puppeteer
+
+    // await page.click(WEBSITE_SIGNIN_EMAIL_SELECTOR);
+    // await page.keyboard.type(USER_EMAIL);
+    // await page.click(WEBSITE_SIGNIN_PASSWORD_SELECTOR);
+    // await page.keyboard.type(USER_PASSWORD);
+    // await page.click(WEBSITE_SIGNIN_SUBMIT_SELECTOR);
 
 
-(async () => {
 
-    //creates a page, navigates it to a URL
-    const browser = await puppeteer.launch()
-    const page = await browser.newPage()
-    await page.goto(WEBSITE);
+    await page.waitForTimeout(3000);
 
-    //Sign In process
-    await signIn(page)
-
+    const isPresent = await page.$('#global-nav>div') ? true : false
+    await page.screenshot({ path: "linkedin.png" });
     
+    if(isPresent) {
+        const buttons = await page.$x(
+          "//button[contains(., 'Accept')]");
 
-    await browser.close()
-})()
+        for(let i = 0; i < buttons.length; i++) {
+            await buttons[i].click()
+        }
+    }
+}
+
 

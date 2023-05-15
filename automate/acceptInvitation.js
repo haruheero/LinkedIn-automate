@@ -14,7 +14,7 @@ export const signIn = async(page, singlePage) => {
     await page.waitForTimeout(3000);
 
     const isPresent = await page.$('#global-nav > div') ? true : false
-    // await page.screenshot({ path: "linkedin3.png" });
+    await page.screenshot({ path: "linkedin3.png" });
     
     // to check if user is logged in
     if(isPresent) {

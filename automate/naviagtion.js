@@ -11,7 +11,7 @@ export const navigatePages = async (page) => {
   //check if only 1 page of invitation is there
   let singlePage = (await page.$x("/html//nav/button[1]/span")).length;
 
-//   await page.screenshot({ path: "linkedin21.png" });
+  await page.screenshot({ path: "linkedin21.png" });
 
 
   //loop till all the invitations are accepted

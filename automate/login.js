@@ -15,5 +15,5 @@ export const logIn = async (page) => {
   await page.keyboard.type(USER_PASSWORD);
   await page.click(WEBSITE_SIGNIN_SUBMIT_SELECTOR);
   await page.waitForNavigation()
-//   await page.screenshot({ path: "linkedin1.png" });
+  await page.screenshot({ path: "linkedin1.png" });
 };

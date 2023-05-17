@@ -25,16 +25,15 @@ export const automateFunction = (email, password) => {
 
     await page.goto(WEBSITE);
 
-    await logIn(page, email, password);
-    
+    const responseLogin = await logIn(page, email, password);
+    console.log(responseLogin)
     //naviagte to invitations manager page
-    await page.goto(WEBSITE_INVITE);
-
-    await navigatePages(page);
-
+    if(responseLogin) {
+      await page.goto(WEBSITE_INVITE);
+      await navigatePages(page);
+    }
     //close the browser
     await browser.close();
   })();
-
   // console.log('h1', email, password)
 }

@@ -20,9 +20,12 @@ app.post('/', urlencodedParser, function(req, res) {
 })
 
 app.post("/json", jsonParser, function (req, res) {
-  res.send(req.body);
   if(req.body.email && req.body.password) {
-    automateFunction(req.body.email, req.body.password)
+
+    const response = automateFunction(req.body.email, req.body.password)
+    // console.log(response)
+    if(response == "error") res.send({"respnse": "error"})
+    else if(response == "success") res.send({"response": "success"})
   }
 });
 

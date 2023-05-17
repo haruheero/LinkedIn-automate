@@ -10,9 +10,20 @@ export default function LinkedinFront() {
 
     const [data, setData] = useState({})
 
-    const onSubmit = () => {
-      console.log(data);
-      
+    const onSubmit = async () => {
+      try {
+        const response = await fetch("http://localhost:8000/json", {
+          method: "POST",
+          body: JSON.stringify(data),
+          headers: {
+            "Content-Type": "application/json",
+          },
+        });
+        const res = await response.json();
+        console.log(res);
+      } catch (error) {
+        console.log(error);
+      }
     };
 
   return (

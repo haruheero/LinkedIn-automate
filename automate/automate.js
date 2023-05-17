@@ -5,7 +5,7 @@ import { navigatePages } from "./naviagtion.js";
 import { logIn } from "./login.js";
 
 
-export const automateFunction = () => {
+export const automateFunction = (email, password) => {
 
 
   (async () => {
@@ -25,7 +25,8 @@ export const automateFunction = () => {
 
     await page.goto(WEBSITE);
 
-    await logIn(page);
+    await logIn(page, email, password);
+    
     //naviagte to invitations manager page
     await page.goto(WEBSITE_INVITE);
 
@@ -34,4 +35,6 @@ export const automateFunction = () => {
     //close the browser
     await browser.close();
   })();
+
+  // console.log('h1', email, password)
 }

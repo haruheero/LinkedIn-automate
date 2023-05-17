@@ -1,6 +1,5 @@
 import LinkedinFront from "./LinkedinFront";
 
-
 function App() {
   return (
     <>

@@ -1,30 +1,37 @@
 import { WEBSITE, WEBSITE_INVITE } from "../constants.js";
 import puppeteer from "puppeteer";
-import { readFile } from "fs/promises";
+// import { readFile } from "fs/promises"; check if needed later
 import { navigatePages } from "./naviagtion.js";
 import { logIn } from "./login.js";
 
-(async () => {
-  //creates a page, navigates it to a URL
-  const browser = await puppeteer.launch();
-  const page = await browser.newPage();
 
-  //extract cookies for linkedin and store it for auto login
-  // const cookiesJSON = JSON.parse(
-  //   await readFile(new URL("./linkedin.json", import.meta.url))
-  // );
+export const automateFunction = () => {
 
-  // //set cookies for a logged in session
-  // await page.setCookie(...cookiesJSON);
 
-  await page.goto(WEBSITE);
+  (async () => {
+    //creates a page, navigates it to a URL
+    const browser = await puppeteer.launch();
+    const page = await browser.newPage();
 
-  await logIn(page);
-  //naviagte to invitations manager page
-  await page.goto(WEBSITE_INVITE);
+    //extract cookies for linkedin and store it for auto login
+    // const cookiesJSON = JSON.parse(
+    //   await readFile(new URL("./linkedin.json", import.meta.url))
+    // );
 
-  await navigatePages(page);
+    // //set cookies for a logged in session
+    // await page.setCookie(...cookiesJSON);
 
-  //close the browser
-  await browser.close();
-})();
+    // check if needed later
+
+    await page.goto(WEBSITE);
+
+    await logIn(page);
+    //naviagte to invitations manager page
+    await page.goto(WEBSITE_INVITE);
+
+    await navigatePages(page);
+
+    //close the browser
+    await browser.close();
+  })();
+}
